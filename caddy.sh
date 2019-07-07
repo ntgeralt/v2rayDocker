@@ -2,12 +2,12 @@
 # FILE="/etc/Caddy"
 domain="$1"
 psname="$2"
-uuid=$(uuidgen)
+#uuid=$(uuidgen)
 cat > /etc/Caddyfile <<'EOF'
 domain
 {
   log ./caddy.log
-  proxy /one :2333 {
+  proxy /a98aa :61234 {
     websocket
     header_upstream -Origin
   }
@@ -21,12 +21,12 @@ cat > /etc/v2ray/config.json <<'EOF'
 {
   "inbounds": [
     {
-      "port": 2333,
+      "port": 61234,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "uuid",
+            "id": "6f0a2e13-2d0d-4382-8618-a98aaa06290e",
             "alterId": 64
           }
         ]
@@ -34,7 +34,7 @@ cat > /etc/v2ray/config.json <<'EOF'
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-        "path": "/one"
+        "path": "/a98aa"
         }
       }
     }
@@ -49,16 +49,16 @@ cat > /etc/v2ray/config.json <<'EOF'
 
 EOF
 
-sed -i "s/uuid/${uuid}/" /etc/v2ray/config.json
+#sed -i "s/uuid/${uuid}/" /etc/v2ray/config.json
 
 cat > /srv/sebs.js <<'EOF'
  {
     "add":"domain",
     "aid":"0",
     "host":"",
-    "id":"uuid",
+    "id":"6f0a2e13-2d0d-4382-8618-a98aaa06290e",
     "net":"ws",
-    "path":"/one",
+    "path":"/a98aa",
     "port":"443",
     "ps":"sebsclub",
     "tls":"tls",
