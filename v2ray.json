@@ -1,12 +1,12 @@
 {
   "inbounds": [
     {
-      "port": 2333,
+      "port": 61234,
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "uuid",
+            "id": "6f0a2e13-2d0d-4382-8618-a98aaa06290e",
             "alterId": 64
           }
         ]
@@ -14,7 +14,7 @@
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-        "path": "/one"
+        "path": "/a98aa"
         }
       }
     }
