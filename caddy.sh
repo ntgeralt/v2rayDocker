@@ -8,7 +8,7 @@ domain
 {
     gzip
 timeouts none
-    proxy / https://www.makeuseof.com/ {
+    proxy / https://techaeris.com {
         except /a98aa
     }
     proxy except /a98aa 127.0.0.1:61234 {
@@ -39,7 +39,6 @@ cat > /etc/v2ray/config.json <<'EOF'
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-        "path": "/a98aa"
         }
       }
     }
