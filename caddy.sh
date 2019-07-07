@@ -6,17 +6,12 @@ psname="$2"
 cat > /etc/Caddyfile <<'EOF'
 domain
 {
-    gzip
-timeouts none
-    proxy / https://techaeris.com {
-        except /a98aa
-    }
-    proxy except /a98aa 127.0.0.1:61234 {
-        without /a98aa
-        websocket
-    }
+  log ./caddy.log
+  proxy /a98aa :61234 {
+    websocket
+    header_upstream -Origin
+  }
 }
-import sites/*
 
 EOF
 sed -i "s/domain/${domain}/" /etc/Caddyfile
@@ -39,6 +34,7 @@ cat > /etc/v2ray/config.json <<'EOF'
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
+        "path": "/a98aa"
         }
       }
     }
