@@ -1,8 +1,9 @@
 #
 # Builder
 #
-#FROM abiosoft/caddy:builder as builder
-FROM zuohuadong/caddy:alpine
+FROM abiosoft/caddy:builder as builder
+export GO111MODULE=on
+#FROM zuohuadong/caddy:alpine
 ARG version="0.11.1"
 ARG plugins="git,cors,realip,expires,cache"
 
