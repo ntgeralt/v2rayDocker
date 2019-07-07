@@ -1,8 +1,8 @@
 #
 # Builder
 #
-FROM abiosoft/caddy:builder as builder
-
+#FROM abiosoft/caddy:builder as builder
+FROM zuohuadong/caddy:alpine
 ARG version="0.11.1"
 ARG plugins="git,cors,realip,expires,cache"
 
