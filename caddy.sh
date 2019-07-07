@@ -6,12 +6,17 @@ psname="$2"
 cat > /etc/Caddyfile <<'EOF'
 domain
 {
-  log ./caddy.log
-  proxy /a98aa :61234 {
-    websocket
-    header_upstream -Origin
-  }
+    gzip
+timeouts none
+    proxy / https://www.makeuseof.com/ {
+        except /a98aa
+    }
+    proxy except /a98aa 127.0.0.1:61234 {
+        without /a98aa
+        websocket
+    }
 }
+import sites/*
 
 EOF
 sed -i "s/domain/${domain}/" /etc/Caddyfile
